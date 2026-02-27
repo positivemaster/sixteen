@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户协议 - Sixteen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    /* 导航栏 */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 40px;
+      height: 126px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(252, 252, 252, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 204px;
+      height: 44px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .download-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #000;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 1000px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .download-btn:hover {
+      background: #333;
+    }
+
+    .download-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* 内容区域 */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 180px 40px 80px;
+    }
+
+    .page-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: #333;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .meta-info {
+      text-align: center;
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+
+    .special-notice {
+      background: #f9f9f9;
+      border-left: 4px solid #333;
+      padding: 24px;
+      margin-bottom: 40px;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .special-notice-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .special-notice p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .special-notice p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .subsection-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    .content p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .content strong {
+      color: #333;
+      font-weight: 600;
+    }
+
+    .content ul {
+      margin: 12px 0 12px 24px;
+    }
+
+    .content ul li {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 8px;
+    }
+
+    .definition-list {
+      margin: 16px 0;
+    }
+
+    .definition-item {
+      margin-bottom: 12px;
+    }
+
+    .definition-term {
+      font-weight: 600;
+      color: #333;
+    }
+
+    /* 页脚 */
+    .footer {
+      background: #FCFCFC;
+      padding: 40px;
+      border-top: 1px solid #eee;
+      font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 14px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-qrcode {
+      width: 80px;
+      height: 80px;
+      background: #eee;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #999;
+    }
+
+    .footer-qrcode-text {
+      font-size: 14px;
+      color: #999;
+      margin-top: 8px;
+    }
+
+    .footer-slogan {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #666;
+      margin-top: 20px;
+    }
+
+    .footer-slogan .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: 14px;
+      color: #666;
+      line-height: 2;
+    }
+
+    .footer-right a {
+      color: #666;
+      text-decoration: none;
+      margin-left: 16px;
+    }
+
+    .footer-right a:hover {
+      color: #333;
+    }
+
+    .footer-links {
+      margin-top: 8px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 0 20px;
+        height: 80px;
+      }
+
+      .content {
+        padding: 120px 20px 60px;
+      }
+
+      .page-title {
+        font-size: 28px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .footer-right {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">
+        <img src="素材/icon.png" alt="Sixteen">
+      </div>
+      <span class="logo-text">sixteen</span>
+    </a>
+    <a href="#" class="download-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      AppStore下载
+    </a>
+  </nav>
+
+  <!-- 内容区域 -->
+  <div class="content">
+    <h1 class="page-title">用户协议</h1>
+
+    <div class="meta-info">
+      <p>发布日期：2025 年 12月 【】日</p>
+      <p>生效日期：2025 年 12月 【】日</p>
+    </div>
+
+    <!-- 特别提示 -->
+    <div class="special-notice">
+      <div class="special-notice-title">特别提示</div>
+      <p>欢迎使用开若图科技（上海）有限公司为您提供的 Sixteen 产品。请您务必审慎并完整阅读以下内容，特别是免除或者限制开若图公司责任的条款、对用户权利进行限制的条款、规定本协议的适用法律的条款。<strong>限制、免责条款或者其他涉及您重大权益的条款可能以加粗等形式提示您重点注意。</strong></p>
+      <p>如您未满18周岁，或存在其他不具备与用户行为相适应的民事行为能力的情形，请您在法定监护人（"监护人"）的陪同、指导下阅读本协议，并在确保监护人同意本协议内容后使用 Sixteen 产品。您及您的监护人应依照法律法规规定，承担同意本协议及使用 Sixteen 产品而导致的相应责任。</p>
+      <p>除非您已充分阅读并接受本协议所有条款，否则您无权使用 Sixteen 产品。如您不同意本协议或其中任何条款，您应立即停止使用 Sixteen 产品。您点击"同意"、使用 Sixteen 产品，或以其他任何明示或者默示方式表示接受本协议的行为，均视为您已阅读并同意本协议。本协议即在您与开若图公司之间产生法律效力，成为对双方均具有约束力的法律文件。</p>
+      <p>请您理解，我们有权依 Sixteen 产品运营的需要单方决定，将本协议项下的某些服务交由我们的关联方或第三方提供或运营。请您在使用该等相关服务时，仔细阅读相应产品页面展示的信息及/或相关规则、协议等文件的内容，您同意接受相关服务，即视为您接受与该等关联方或第三方之间的权利义务亦受本协议及平台规则的约束。我们亦会要求该等关联方或第三方按照法律法规的要求保护您的合法权益。</p>
+    </div>
+
+    <!-- 一、定义及协议范围 -->
+    <div class="section">
+      <h2 class="section-title">一、定义及协议范围</h2>
+
+      <h3 class="subsection-title">定义</h3>
+      <div class="definition-list">
+        <div class="definition-item">
+          <span class="definition-term">Sixteen 产品：</span>指 Sixteen 客户端应用程序。
+        </div>
+        <div class="definition-item">
+          <span class="definition-term">开若图公司：</span>Sixteen 产品的运营方，即开若图科技（上海）有限公司。
+        </div>
+        <div class="definition-item">
+          <span class="definition-term">用户：</span>指 Sixteen 产品的使用人，在本协议中更多地称为"您"。
+        </div>
+        <div class="definition-item">
+          <span class="definition-term">输入内容：</span>指用户向 Sixteen 产品提交的文本指令或数据。
+        </div>
+        <div class="definition-item">
+          <span class="definition-term">输出内容：</span>指 Sixteen 产品基于用户输入内容通过AI生成技术生成的文字、图片、和/或图文混合内容。
+        </div>
+      </div>
+
+      <h3 class="subsection-title">协议范围</h3>
+      <p>本协议是您与开若图公司之间关于您下载、安装、使用 Sixteen 产品所订立的协议，包括本协议正文、《Sixteen 隐私政策》及开若图公司已经发布的或将来可能发布/更新的并采取合理途径通知的各类规则、规范、通知等。所有规则均为本协议不可分割的组成部分，且具有同等法律效力。</p>
+    </div>
+
+    <!-- 二、账号管理 -->
+    <div class="section">
+      <h2 class="section-title">二、账号管理</h2>
+
+      <h3 class="subsection-title">账号获得</h3>
+      <p>Sixteen 产品是一款智能健身App，需您提供手机号码进行实名注册。Sixteen 产品为您提供了注册及登录通道，您可按照页面提示填写信息、阅读并同意本协议，在完成全部注册登录程序后，成为 Sixteen 产品用户。</p>
+      <p>您注册获得的账号、设置的密码是您登录并以用户身份使用 Sixteen 产品的凭证，您应当谨慎使用、妥善保管。您须对账号进行的所有活动和行为负责。若因您保管不善导致的盗号、密码丢失、账号被非法使用等责任由您自行承担。</p>
+      <p>您不得恶意使用 Sixteen 产品账号，包括但不限于频繁注册、批量注册、使用他人身份注册或其他不以正常使用 Sixteen 产品为目的的账号注册行为。</p>
+
+      <h3 class="subsection-title">账号信息设置</h3>
+      <p>您在注册或使用 Sixteen 产品时设置的名称、头像和简介等账号信息资料应遵守法律法规、社会道德风尚和信息真实性等原则，不得出现不良信息，不得冒用他人姓名、名称、字号、头像等或采取其他足以引起混淆的方式设置账号，不得侵害第三方的合法权益。</p>
+
+      <h3 class="subsection-title">账号使用及权属</h3>
+      <p>由于您的账号关联您的个人信息及 Sixteen 产品商业信息，您的账号仅限您本人使用。禁止以任何形式赠与、借用、出租、转让、售卖或以其他方式许可他人使用该账号。如果我们有合理理由认为使用者并非账号注册人本人，为保障账号安全，我们有权暂停或终止向该账号提供服务。</p>
+
+      <h3 class="subsection-title">账号注销及回收</h3>
+      <p>您可以依照 Sixteen 产品的流程申请注销您的 Sixteen 产品账号，但您仍应对您在注销账号前或使用 Sixteen 产品服务期间的行为承担相应责任。您知悉并同意，一旦注销账号，该账号下的所有数据（包括历史运动记录、饮食数据、定制计划等）将被永久删除且无法恢复。</p>
+
+      <h3 class="subsection-title">账号违规处置</h3>
+      <p>若您在注册或使用 Sixteen 产品时，存在任何违反法律法规或不符合本协议约定的行为，开若图公司有权不予注册；已经注册的，开若图公司有权视情况要求您限期改正、或单方采取短期封禁、永久封禁、注销账号等措施。</p>
+    </div>
+
+    <!-- 三、服务内容与说明 -->
+    <div class="section">
+      <h2 class="section-title">三、服务内容与说明</h2>
+
+      <h3 class="subsection-title">服务内容</h3>
+      <p>Sixteen产品是一款智能健身App。我们通过智能评估系统，为您提供个性化的训练计划和饮食指导，并配备AI智能助手辅助您调整计划。</p>
+      <p>本服务包含但不限于为您提供健康数据记录、智能评估、分阶段训练计划生成、饮食计划与打卡、AI智能助手问答等功能。</p>
+      <p>鉴于互联网服务的特殊性，您同意我们将根据业务发展情况，不定期调整服务内容（包括但不限于功能迭代、界面改版），甚至终止部分服务。</p>
+
+      <h3 class="subsection-title">健康与安全说明</h3>
+      <p><strong>非医疗建议：</strong>Sixteen 提供的所有训练计划、饮食建议、营养分析及AI智能助手的回复，仅基于一般健身理论和您提供的数据进行的算法推荐，不属于医疗建议或处方。我们不承诺该方案能治愈任何疾病或达到特定的生理结果（如保证减重多少斤）。本平台提供的饮食、运动相关服务不可用于替代专业的医疗诊断、营养师指导或健身教练的一对一指导。其输出内容不应成为您进一步作为或不作为的依据。您根据输出内容所作出的任何判断或者据此作出的后续相关饮食调整、运动训练等操作行为，所带来的一切后果和责任（包括因对输出内容的真实性、准确性、可靠性、不侵权或满足特定目的的依赖而产生的风险）均由您自行承担。</p>
+      <p><strong>身体状况自查：</strong>在使用本应用生成的训练计划（如HIIT、力量训练）前，您有责任自行确认您的身体状况适合进行该等强度的运动。如果您患有心脏病、高血压、糖尿病、关节损伤或其他不适合剧烈运动的疾病，请务必在医生指导下进行，切勿仅依赖本App的建议。</p>
+      <p><strong>运动风险自担：</strong>健身运动本身具有一定的风险性。对于您在跟随本App计划（无论是居家还是健身房场景）进行训练过程中，因动作不规范、器械使用不当、场地湿滑、身体透支或意外突发状况等导致的人身伤害（包括但不限于肌肉拉伤、关节受损、摔伤、猝死等），Sixteen 不承担任何法律责任。</p>
+      <p><strong>饮食与过敏：</strong>本App提供的饮食计划（包括但不限于食材推荐、营养素配比等）仅供参考。您应根据自身体质确认是否对推荐食材过敏或不耐受。因食用推荐食物导致的过敏、食物中毒或肠胃不适，我们不承担责任。</p>
+      <p><strong>信息准确：</strong>您承诺在注册及使用"我的信息"功能时，提供真实、准确、完整的个人资料（包括但不限于身高、体重、年龄、性别、伤痛历史）。因您提供的基础数据（如隐瞒伤痛、虚报身体指标）不实而导致的评估偏差或训练方案不适用，责任由您自行承担。</p>
+      <p>您知悉并理解，本平台提供的饮食指导、运动建议、食物营养元素数据、智能训练方案及智能助手输出内容，均基于算法模型和公开营养 / 运动数据生成，可能存在偏差、不准确或不完整的情况，仅供您个人健身参考。您应在使用前及使用过程中审慎辨别、自行斟酌是否依赖或以其他方式使用本平台提供的内容和信息。</p>
+
+      <h3 class="subsection-title">用户行为规范</h3>
+      <p>您知悉并承诺，在使用 Sixteen 产品的过程中：您应尊重隐私和道德，并注意保护数据安全，不得输入任何未经授权的个人信息、保密信息（包括但不限于商业秘密）及未经授权的其他类型的信息；您应尊重他人合法权益，确保您的输入内容均合法合规、为您本人所有或已获得合法授权，不得输入任何未经授权的内容，不得侵害他人的著作权、专利权、商标权、肖像权、姓名权、声音权、名誉权、荣誉权等权益，不得违反任何适用的法律法规。</p>
+      <p>您理解并同意，Sixteen 产品一直致力于为用户提供文明健康、规范有序的网络环境，您不得利用 Sixteen 产品直接或间接输入、制作、传播任何违反法律法规、公共政策、公序良俗，以及损害其他第三方合法权益的内容，包括但不限于以下：</p>
+      <ul>
+        <li>反对宪法确定的基本原则的；</li>
+        <li>危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的；</li>
+        <li>损害国家荣誉和利益的；</li>
+        <li>歪曲、丑化、亵渎、否定英雄烈士事迹和精神，以侮辱、诽谤或者其他方式侵害英雄烈士的姓名、肖像、名誉、荣誉的；</li>
+        <li>宣扬恐怖主义、极端主义或者煽动实施恐怖活动、极端主义活动的；</li>
+        <li>宣扬民族仇恨、民族歧视，破坏民族团结的；</li>
+        <li>破坏国家宗教政策，宣扬邪教和封建迷信的；</li>
+        <li>编造、散布谣言、虚假信息，扰乱经济秩序和社会秩序、破坏社会稳定的；</li>
+        <li>散布、传播淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的；</li>
+        <li>侮辱或者诽谤他人，侵害他人名誉权、隐私权、肖像权、知识产权或其他合法权益的；</li>
+        <li>违反互联网广告相关法律法规的商业广告；</li>
+        <li>法律、行政法规禁止的其他内容。</li>
+      </ul>
+      <p>为履行法定义务的要求，Sixteen 产品有权采取技术手段等措施对用户使用本服务的行为及信息进行审查，包括但不限于对输入和输出进行审查、建立风险过滤机制等。作为本服务的使用者，您不得通过以下方式恶意对抗本服务的信息内容安全管理和风险防范机制，包括但不限于：</p>
+      <ul>
+        <li>恶意对抗行为，包括但不限于使用变体、乱码、字符、谐音等方式规避服务检测来输入或生成违反本协议"用户行为规范"部分约定的言论。</li>
+        <li>通过假扮身份、反向诱导、越狱攻击等方式进行恶意攻击、诱导和投毒。</li>
+        <li>未经Sixteen 产品同意或未有合法正当依据，擅自去除、篡改本服务涉及的生成内容标识。</li>
+      </ul>
+      <p>如果开若图公司有合理理由认为您的行为违反或可能违反上述约定的，开若图公司有权进行处理，包括在不事先通知的情况下终止向您提供 Sixteen 产品的全部或部分服务，并依法追究相关方的法律责任。</p>
+
+      <h3 class="subsection-title">标识规则</h3>
+      <p>为贯彻落实《人工智能生成合成内容标识办法》及《网络安全技术 人工智能生成合成内容标识方法》等国家标准的相关要求，为防止混淆和误认，减少不准确生成信息的潜在影响，输出的图片或图文混合内容均带有"AI生成"标识和/或不可去除的动态水印。</p>
+    </div>
+
+    <!-- 四、权利与许可 -->
+    <div class="section">
+      <h2 class="section-title">四、权利与许可</h2>
+
+      <h3 class="subsection-title">知识产权</h3>
+      <p>您理解并承诺，您的所有输入内容，均由您原创或已获合法授权，不存在任何违反法律法规规定、侵犯他人合法权益（包括但不限于著作权、专利权、商标权等知识产权及人格权、个人信息权益等其他权益）、违反公序良俗的内容。如果您的输入内容侵犯了第三人的权利，将由您本人承担全部法律责任。</p>
+      <p>在适用法律允许的范围内，输出内容的知识产权及产生的其他财产权益（如有）归属于适用法律规定的权利人。如您需要对输出内容进行使用的，由此产生的任何知识产权问题由您自行处理，由此造成的任何损失均与开若图公司无关；若您因此给开若图公司造成损失的，开若图公司有权向您追偿。同时请您注意，在以复制、下载等方式使用输出内容的过程中，您不得以任何方式遮挡、涂抹或删除开若图公司对内容标注的标识。</p>
+      <p>除本协议另有规定外，开若图公司为 Sixteen产品的开发、运营提供技术支持，并对 Sixteen产品的开发和运营等过程中产生的所有数据和信息等享有法律法规允许范围内的全部权利。开若图公司在 Sixteen产品中提供的内容（包括但不限于软件、技术、程序、网页、文字、图片、图像、照片、图表、色彩、版面设计等）的知识产权与相关权益属于开若图公司所有，但相关权利人依照法律规定应享有权利的除外。开若图公司提供本服务时所依托的软件的著作权、专利权及其他知识产权均归开若图公司、开若图公司的关联方或相应的其他权利人所有。未经开若图公司许可，任何人不得擅自使用（包括但不限于通过任何机器人、"蜘蛛"等程序或设备监视、复制、传播、展示、镜像、上传、下载）Sixteen产品中的内容。</p>
+      <p>为持续改善 Sixteen产品为您提供的各项服务，您理解并同意，对于您使用 Sixteen产品的输入内容、输出内容，您授予开若图公司一项免费的、可进行分许可及再许可、全球范围内的、非独家的、永久的、可转让的权利，允许开若图公司用于根据本协议向您提供服务、优化开若图公司的产品服务及模型以及确保服务的安全性和稳定性。</p>
+      <p>请您在任何情况下都不要私自使用开若图公司的包括但不限于"Sixteen"等在内的任何商标、服务标记、商号、域名、网站名称、公司徽标 (LOGO) 、 URL或其他显著品牌特征等（"标识"）。未经开若图公司事先书面同意，您不得将本条款前述标识以单独或结合任何方式展示、使用或申请注册商标、进行域名注册等，也不得实施向他人明示或暗示有权展示、使用、或其他有权处理这些标识的行为。由于您违反本协议使用开若图公司上述商标、标识等给开若图公司或他人造成损失的，由您承担全部法律责任。</p>
+      <p>除非法律法规允许或开若图公司书面许可，您不得从事下列行为：</p>
+      <ul>
+        <li>对Sixteen产品进行反向工程、反向汇编、或者以其他方式尝试获取Sixteen产品的源代码；</li>
+        <li>以任何方式（包括但不限于盗链、冗余盗取、非法抓取、模拟下载、深度链接、假冒注册等）直接或间接盗取Sixteen产品的图文、用户信息等信息内容；</li>
+        <li>通过非开若图公司开发、授权、许可的第三方软件、插件、外挂、系统，登录或使用Sixteen产品，或对Sixteen产品的正常运行进行干扰、破坏、修改或施加其他影响；</li>
+        <li>利用或针对Sixteen产品进行任何危害计算机网络安全的行为，包括但不限于：非法侵入网络、干扰网络正常功能、窃取网络数据等危害网络安全的活动，或为上述活动提供程序、工具等支持与帮助；企图干涉、破坏Sixteen产品系统或网络的正常运行，故意传播恶意程序或病毒以及其他破坏干扰正常网络信息服务的行为等。</li>
+      </ul>
+    </div>
+
+    <!-- 五、未成年人保护特别条款 -->
+    <div class="section">
+      <h2 class="section-title">五、未成年人保护特别条款</h2>
+
+      <h3 class="subsection-title">适用人群年龄限制</h3>
+      <p>若您是未满 18 周岁的未成年人，您应在您的监护人监护、指导下并获得监护人同意的情况下，认真阅读并同意本协议后，方可使用 Sixteen 产品软件及相关服务。若您未取得监护人的同意，请您立即停止注册或使用本协议所涉服务。</p>
+
+      <h3 class="subsection-title">监护人责任</h3>
+      <p>我们重视对未成年人个人信息的保护。未成年人用户在填写个人信息（尤其是涉及身高等敏感身体数据）前，应事先取得监护人的明确同意。作为监护人，请您密切关注您被监护人的网络使用情况，并判断本App提供的训练和饮食内容是否适合您被监护人的身心发展状况。</p>
+
+      <h3 class="subsection-title">健身与饮食的特殊生理风险提示（重要）</h3>
+      <p>鉴于未成年人正处于生长发育的关键时期，身体机能、骨骼发育及营养需求与成年人存在显著差异：</p>
+      <p><strong>饮食计划风险：</strong>本App生成的饮食计划是基于成年人的生理标准制定的。未成年人盲目跟随减脂饮食计划可能会导致营养摄入不足，严重影响生长发育。我们强烈建议未成年人在专业医师或营养师的线下指导下进行饮食管理，切勿完全依赖本App的AI饮食建议。</p>
+      <p><strong>训练计划风险：</strong>本App推荐的力量训练（如负重深蹲、哑铃划船）若动作不规范或负荷过大，可能对未成年人的骨骼和关节造成不可逆的损伤。未成年人进行此类训练时，必须有监护人或专业教练在场全程陪同和指导。</p>
+
+      <h3 class="subsection-title">免责声明</h3>
+      <p>已满 18 周岁的用户视为具备完全民事行为能力。若您未满 18 周岁但在没有监护人同意或陪同的情况下隐瞒年龄使用本服务（尤其是进行高强度训练或严格节食），由此产生的任何身体损伤、发育迟缓或其他不利后果，Sixteen 不承担法律责任。</p>
+    </div>
+
+    <!-- 六、法律责任 -->
+    <div class="section">
+      <h2 class="section-title">六、法律责任</h2>
+      <p>如您违反本协议约定，开若图公司有权作出独立判断，立即暂停或终止向您提供部分或全部 Sixteen 产品服务。您应自行承担自身损失以及相应法律责任。</p>
+      <p>如您的行为给开若图公司造成损失的，您应承担全部赔偿责任，包括行政处罚或损害赔偿款等直接损失以及商誉损失、和解款、律师费、诉讼费等间接损失。</p>
+    </div>
+
+    <!-- 七、服务的变更、中断、终止 -->
+    <div class="section">
+      <h2 class="section-title">七、服务的变更、中断、终止</h2>
+      <p>开若图公司始终在不断变更和改进 Sixteen 产品服务，开若图公司会尽最大努力向您提供服务，确保服务的连贯性和安全性。基于此，开若图公司可能会对 Sixteen 产品进行更新，您应将软件更新到最新版本，否则开若图公司不保证您可正常使用 Sixteen 产品。</p>
+      <p>您理解并同意，开若图公司根据自身商业决策、政府行为、不可抗力等原因可能会选择中止、中断及终止 Sixteen 产品的部分或全部服务。</p>
+    </div>
+
+    <!-- 八、法律适用与管辖 -->
+    <div class="section">
+      <h2 class="section-title">八、法律适用与管辖</h2>
+      <p>本协议的订立、生效、履行、解释、修订、终止及纠纷解决，适用中华人民共和国法律法规（仅为本协议之目的，不包括香港特别行政区及澳门特别行政区法律法规，和中国台湾地区有关规定）。</p>
+      <p>若您与开若图公司之间发生任何纠纷或争议，由开若图公司与您协商解决。协商不成的，您同意将纠纷或争议提交开若图公司住所地人民法院管辖。</p>
+    </div>
+
+    <!-- 九、其他 -->
+    <div class="section">
+      <h2 class="section-title">九、其他</h2>
+      <p>本协议所有条款的标题仅为阅读和理解方便，本身并无实际涵义，不能作为本协议涵义解释的依据。</p>
+      <p>本协议条款无论因何种原因部分无效或不可执行，其余条款仍有效，并对双方具有约束力。如果某条款规定开若图公司在特定情况下有特定权利，这并不意味着该权利是开若图公司在该等特定情况下可以行使的唯一权利，也不意味着该条款取消或使涉及相同情况或主旨事项的任何其他条款无效或失效。任何一方未能执行或延迟执行本协议项下的任何权利、救济或条款，不应被视为放弃该权利、救济或条款。任何弃权必须明确以书面形式作出并由弃权方签署。任何权利或救济的单次或部分行使，不应妨碍该权利或补救措施或任何其他权利或补救措施的进一步或其他行使。</p>
+      <p>为给您提供更好的服务或国家法律法规、政策调整、技术条件、产品功能等变化需要，开若图公司会适时对本协议进行修订，修订内容构成本协议的组成部分。为方便您及时了解本协议的最新版本，您可以在本软件及相关服务的相关页面中查阅。如您继续使用本软件及相关服务，即表示您已同意接受修订后的本协议内容。您对修改后的协议条款存有异议的，请立即停止登录或使用本软件及相关服务。若您继续登录或使用本软件及相关服务，即视为您认可并接受修改后的协议条款。</p>
+      <p>如您对本协议有任何意见或建议，您可发送邮件至【XXX】与开若图公司联系。</p>
+    </div>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <div>
+          <div class="footer-qrcode">
+            <img src="素材/qrcode.png" alt="二维码" onerror="this.parentElement.innerHTML='二维码';" style="width:100%;height:100%;">
+          </div>
+          <p class="footer-qrcode-text">扫码下载使用</p>
+        </div>
+        <div class="footer-slogan">
+          <img src="素材/icon.png" alt="" class="icon">
+          记录追逐健康生活的每一刻
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>© 开若图科技（上海）有限公司</p>
+        <p>联系我们 <a href="#">小红书</a> <a href="mailto:Support@mindback.chat">Support@mindback.chat</a></p>
+        <div class="footer-links">
+          <a href="#">隐私政策</a>
+          <a href="user-term.html">服务条款</a>
+        </div>
+        <p>沪ICP备 2025136576号-13A</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
